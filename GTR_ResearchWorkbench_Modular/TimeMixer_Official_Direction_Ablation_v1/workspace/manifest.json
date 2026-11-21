@@ -1,0 +1,15 @@
+{
+  "official_repo": "https://github.com/kwuking/TimeMixer",
+  "official_commit": "e24610583b36fdd8c76cc17a8df4e65759a5f460",
+  "verified_original_blobs": {
+    "models/TimeMixer.py": "ad1847df86646848cdfecab568eb49f7099ef1ce",
+    "exp/exp_basic.py": "6d093c4c9e2f66bc4ea4907a44274bc23aaec3d9",
+    "run.py": "acf120c652c880351b688ef99a1aa70032f98a74"
+  },
+  "changes": [
+    "new model TimeMixerReverse",
+    "model registration in isolated copy",
+    "seed environment override",
+    "disable test eval in training and after training by default"
+  ]
+}

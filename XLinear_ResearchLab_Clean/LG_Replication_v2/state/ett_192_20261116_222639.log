@@ -1,0 +1,134 @@
+数据准备完成: ETTh1.csv, ETTm1.csv, weather.csv, electricity.csv
+
+[1/6] ETTh1_H192_official_s2025 | epochs <= 30
+Epoch: 1, Steps: 65 | Train Loss: 0.6005462 Vali Loss: 1.3923861 Test Loss: 0.7066472
+Epoch: 2, Steps: 65 | Train Loss: 0.4953217 Vali Loss: 1.0369591 Test Loss: 0.4621310
+Epoch: 3, Steps: 65 | Train Loss: 0.4455598 Vali Loss: 1.0111889 Test Loss: 0.4474064
+Epoch: 4, Steps: 65 | Train Loss: 0.4374165 Vali Loss: 1.0065240 Test Loss: 0.4411286
+Epoch: 5, Steps: 65 | Train Loss: 0.4315635 Vali Loss: 0.9998545 Test Loss: 0.4381536
+Epoch: 6, Steps: 65 | Train Loss: 0.4268853 Vali Loss: 0.9924866 Test Loss: 0.4337291
+Epoch: 7, Steps: 65 | Train Loss: 0.4229423 Vali Loss: 0.9867103 Test Loss: 0.4303102
+Epoch: 8, Steps: 65 | Train Loss: 0.4192114 Vali Loss: 0.9834697 Test Loss: 0.4280028
+Epoch: 9, Steps: 65 | Train Loss: 0.4160911 Vali Loss: 0.9859373 Test Loss: 0.4299107
+Epoch: 10, Steps: 65 | Train Loss: 0.4134500 Vali Loss: 0.9831367 Test Loss: 0.4251260
+Epoch: 11, Steps: 65 | Train Loss: 0.4113578 Vali Loss: 0.9822760 Test Loss: 0.4245928
+Epoch: 12, Steps: 65 | Train Loss: 0.4095667 Vali Loss: 0.9830588 Test Loss: 0.4240591
+Epoch: 13, Steps: 65 | Train Loss: 0.4081316 Vali Loss: 0.9820092 Test Loss: 0.4235381
+Epoch: 14, Steps: 65 | Train Loss: 0.4059581 Vali Loss: 0.9813555 Test Loss: 0.4213278
+Epoch: 15, Steps: 65 | Train Loss: 0.4047220 Vali Loss: 0.9814522 Test Loss: 0.4212087
+Epoch: 16, Steps: 65 | Train Loss: 0.4035233 Vali Loss: 0.9844813 Test Loss: 0.4213550
+Epoch: 17, Steps: 65 | Train Loss: 0.4017144 Vali Loss: 0.9836863 Test Loss: 0.4216372
+Epoch: 18, Steps: 65 | Train Loss: 0.4008582 Vali Loss: 0.9860703 Test Loss: 0.4208845
+Epoch: 19, Steps: 65 | Train Loss: 0.4003382 Vali Loss: 0.9830143 Test Loss: 0.4200125
+Early stopping
+mse:0.42132776975631714, mae:0.42295509576797485, nse:0.6200526058673859, kge:0.7329826465072307, mape:9.611536979675293
+完成 ETTh1_H192_official_s2025: MSE=0.421328 MAE=0.422955
+
+[2/6] ETTh1_H192_lg_short_s2025 | epochs <= 30
+Epoch: 1, Steps: 65 | Train Loss: 0.6004252 Vali Loss: 1.3919045 Test Loss: 0.7062753
+Epoch: 2, Steps: 65 | Train Loss: 0.4946821 Vali Loss: 1.0361111 Test Loss: 0.4621150
+Epoch: 3, Steps: 65 | Train Loss: 0.4450071 Vali Loss: 1.0091606 Test Loss: 0.4463062
+Epoch: 4, Steps: 65 | Train Loss: 0.4367004 Vali Loss: 1.0051658 Test Loss: 0.4400868
+Epoch: 5, Steps: 65 | Train Loss: 0.4306335 Vali Loss: 0.9967679 Test Loss: 0.4366944
+Epoch: 6, Steps: 65 | Train Loss: 0.4258829 Vali Loss: 0.9908487 Test Loss: 0.4323819
+Epoch: 7, Steps: 65 | Train Loss: 0.4219296 Vali Loss: 0.9847953 Test Loss: 0.4287211
+Epoch: 8, Steps: 65 | Train Loss: 0.4181521 Vali Loss: 0.9824153 Test Loss: 0.4263921
+Epoch: 9, Steps: 65 | Train Loss: 0.4150526 Vali Loss: 0.9849356 Test Loss: 0.4279472
+Epoch: 10, Steps: 65 | Train Loss: 0.4123903 Vali Loss: 0.9830120 Test Loss: 0.4226911
+Epoch: 11, Steps: 65 | Train Loss: 0.4102797 Vali Loss: 0.9806331 Test Loss: 0.4228994
+Epoch: 12, Steps: 65 | Train Loss: 0.4083347 Vali Loss: 0.9810871 Test Loss: 0.4220805
+Epoch: 13, Steps: 65 | Train Loss: 0.4068100 Vali Loss: 0.9798882 Test Loss: 0.4221002
+Epoch: 14, Steps: 65 | Train Loss: 0.4046175 Vali Loss: 0.9796028 Test Loss: 0.4196884
+Epoch: 15, Steps: 65 | Train Loss: 0.4032493 Vali Loss: 0.9790757 Test Loss: 0.4190931
+Epoch: 16, Steps: 65 | Train Loss: 0.4020841 Vali Loss: 0.9830191 Test Loss: 0.4197374
+Epoch: 17, Steps: 65 | Train Loss: 0.4001896 Vali Loss: 0.9823915 Test Loss: 0.4199418
+Epoch: 18, Steps: 65 | Train Loss: 0.3993692 Vali Loss: 0.9839805 Test Loss: 0.4188977
+Epoch: 19, Steps: 65 | Train Loss: 0.3987079 Vali Loss: 0.9805312 Test Loss: 0.4185761
+Epoch: 20, Steps: 65 | Train Loss: 0.3974536 Vali Loss: 0.9834526 Test Loss: 0.4205581
+Early stopping
+mse:0.41909313201904297, mae:0.42334944009780884, nse:0.622067779302597, kge:0.7330355677819727, mape:9.67623233795166
+完成 ETTh1_H192_lg_short_s2025: MSE=0.419093 MAE=0.423349
+
+[3/6] ETTh1_H192_lg_dual_s2025 | epochs <= 30
+Epoch: 1, Steps: 65 | Train Loss: 0.6003238 Vali Loss: 1.3915583 Test Loss: 0.7060066
+Epoch: 2, Steps: 65 | Train Loss: 0.4943234 Vali Loss: 1.0352246 Test Loss: 0.4623885
+Epoch: 3, Steps: 65 | Train Loss: 0.4447172 Vali Loss: 1.0078684 Test Loss: 0.4463177
+Epoch: 4, Steps: 65 | Train Loss: 0.4362954 Vali Loss: 1.0045069 Test Loss: 0.4395252
+Epoch: 5, Steps: 65 | Train Loss: 0.4300004 Vali Loss: 0.9952737 Test Loss: 0.4363143
+Epoch: 6, Steps: 65 | Train Loss: 0.4251385 Vali Loss: 0.9900443 Test Loss: 0.4317791
+Epoch: 7, Steps: 65 | Train Loss: 0.4210723 Vali Loss: 0.9846078 Test Loss: 0.4276255
+Epoch: 8, Steps: 65 | Train Loss: 0.4172456 Vali Loss: 0.9816185 Test Loss: 0.4256493
+Epoch: 9, Steps: 65 | Train Loss: 0.4141189 Vali Loss: 0.9843453 Test Loss: 0.4261081
+Epoch: 10, Steps: 65 | Train Loss: 0.4114582 Vali Loss: 0.9835829 Test Loss: 0.4218577
+Epoch: 11, Steps: 65 | Train Loss: 0.4093616 Vali Loss: 0.9801049 Test Loss: 0.4221976
+Epoch: 12, Steps: 65 | Train Loss: 0.4072552 Vali Loss: 0.9799170 Test Loss: 0.4212099
+Epoch: 13, Steps: 65 | Train Loss: 0.4057148 Vali Loss: 0.9783206 Test Loss: 0.4218310
+Epoch: 14, Steps: 65 | Train Loss: 0.4034815 Vali Loss: 0.9797101 Test Loss: 0.4191021
+Epoch: 15, Steps: 65 | Train Loss: 0.4022419 Vali Loss: 0.9788250 Test Loss: 0.4182567
+Epoch: 16, Steps: 65 | Train Loss: 0.4009244 Vali Loss: 0.9832290 Test Loss: 0.4190385
+Epoch: 17, Steps: 65 | Train Loss: 0.3989791 Vali Loss: 0.9825240 Test Loss: 0.4190570
+Epoch: 18, Steps: 65 | Train Loss: 0.3981601 Vali Loss: 0.9835906 Test Loss: 0.4182256
+Early stopping
+mse:0.42183107137680054, mae:0.4248412847518921, nse:0.6195987462997437, kge:0.7250315282593294, mape:9.657790184020996
+完成 ETTh1_H192_lg_dual_s2025: MSE=0.421831 MAE=0.424841
+
+[4/6] ETTh1_H192_official_s2026 | epochs <= 30
+Epoch: 1, Steps: 65 | Train Loss: 0.5990849 Vali Loss: 1.3944864 Test Loss: 0.7076360
+Epoch: 2, Steps: 65 | Train Loss: 0.4951295 Vali Loss: 1.0313121 Test Loss: 0.4601611
+Epoch: 3, Steps: 65 | Train Loss: 0.4441009 Vali Loss: 1.0076858 Test Loss: 0.4454390
+Epoch: 4, Steps: 65 | Train Loss: 0.4347665 Vali Loss: 0.9991649 Test Loss: 0.4388697
+Epoch: 5, Steps: 65 | Train Loss: 0.4291326 Vali Loss: 0.9918408 Test Loss: 0.4355648
+Epoch: 6, Steps: 65 | Train Loss: 0.4244278 Vali Loss: 0.9853385 Test Loss: 0.4352614
+Epoch: 7, Steps: 65 | Train Loss: 0.4208154 Vali Loss: 0.9849527 Test Loss: 0.4301061
+Epoch: 8, Steps: 65 | Train Loss: 0.4178979 Vali Loss: 0.9830326 Test Loss: 0.4289542
+Epoch: 9, Steps: 65 | Train Loss: 0.4145971 Vali Loss: 0.9898852 Test Loss: 0.4270107
+Epoch: 10, Steps: 65 | Train Loss: 0.4123581 Vali Loss: 0.9886958 Test Loss: 0.4267552
+Epoch: 11, Steps: 65 | Train Loss: 0.4103663 Vali Loss: 0.9861881 Test Loss: 0.4248753
+Epoch: 12, Steps: 65 | Train Loss: 0.4083795 Vali Loss: 0.9854861 Test Loss: 0.4230740
+Epoch: 13, Steps: 65 | Train Loss: 0.4070151 Vali Loss: 0.9863660 Test Loss: 0.4215578
+Early stopping
+mse:0.42895394563674927, mae:0.42323389649391174, nse:0.6131754219532013, kge:0.7325681988040462, mape:9.794970512390137
+完成 ETTh1_H192_official_s2026: MSE=0.428954 MAE=0.423234
+
+[5/6] ETTh1_H192_lg_short_s2026 | epochs <= 30
+Epoch: 1, Steps: 65 | Train Loss: 0.5990487 Vali Loss: 1.3943932 Test Loss: 0.7075476
+Epoch: 2, Steps: 65 | Train Loss: 0.4948071 Vali Loss: 1.0309334 Test Loss: 0.4599778
+Epoch: 3, Steps: 65 | Train Loss: 0.4433146 Vali Loss: 1.0061979 Test Loss: 0.4446422
+Epoch: 4, Steps: 65 | Train Loss: 0.4335283 Vali Loss: 0.9968997 Test Loss: 0.4379652
+Epoch: 5, Steps: 65 | Train Loss: 0.4276977 Vali Loss: 0.9887648 Test Loss: 0.4349790
+Epoch: 6, Steps: 65 | Train Loss: 0.4228522 Vali Loss: 0.9813822 Test Loss: 0.4348037
+Epoch: 7, Steps: 65 | Train Loss: 0.4192047 Vali Loss: 0.9806094 Test Loss: 0.4293090
+Epoch: 8, Steps: 65 | Train Loss: 0.4162615 Vali Loss: 0.9789829 Test Loss: 0.4279492
+Epoch: 9, Steps: 65 | Train Loss: 0.4129679 Vali Loss: 0.9845577 Test Loss: 0.4256147
+Epoch: 10, Steps: 65 | Train Loss: 0.4106170 Vali Loss: 0.9823851 Test Loss: 0.4252924
+Epoch: 11, Steps: 65 | Train Loss: 0.4086226 Vali Loss: 0.9788660 Test Loss: 0.4235561
+Epoch: 12, Steps: 65 | Train Loss: 0.4065479 Vali Loss: 0.9794528 Test Loss: 0.4214836
+Epoch: 13, Steps: 65 | Train Loss: 0.4053259 Vali Loss: 0.9799375 Test Loss: 0.4201408
+Epoch: 14, Steps: 65 | Train Loss: 0.4039376 Vali Loss: 0.9771268 Test Loss: 0.4198415
+Epoch: 15, Steps: 65 | Train Loss: 0.4018024 Vali Loss: 0.9793279 Test Loss: 0.4212542
+Epoch: 16, Steps: 65 | Train Loss: 0.4009049 Vali Loss: 0.9820325 Test Loss: 0.4192255
+Epoch: 17, Steps: 65 | Train Loss: 0.3999815 Vali Loss: 0.9807655 Test Loss: 0.4193166
+Epoch: 18, Steps: 65 | Train Loss: 0.3989247 Vali Loss: 0.9814197 Test Loss: 0.4202820
+Epoch: 19, Steps: 65 | Train Loss: 0.3983132 Vali Loss: 0.9790254 Test Loss: 0.4194074
+Early stopping
+mse:0.4198416471481323, mae:0.42380252480506897, nse:0.6213927865028381, kge:0.7066401213658153, mape:9.57259464263916
+完成 ETTh1_H192_lg_short_s2026: MSE=0.419842 MAE=0.423803
+
+[6/6] ETTh1_H192_lg_dual_s2026 | epochs <= 30
+Epoch: 1, Steps: 65 | Train Loss: 0.5989248 Vali Loss: 1.3938943 Test Loss: 0.7071764
+Epoch: 2, Steps: 65 | Train Loss: 0.4940830 Vali Loss: 1.0290666 Test Loss: 0.4599797
+Epoch: 3, Steps: 65 | Train Loss: 0.4427861 Vali Loss: 1.0055484 Test Loss: 0.4443504
+Epoch: 4, Steps: 65 | Train Loss: 0.4328430 Vali Loss: 0.9969236 Test Loss: 0.4376408
+Epoch: 5, Steps: 65 | Train Loss: 0.4269648 Vali Loss: 0.9890071 Test Loss: 0.4342445
+Epoch: 6, Steps: 65 | Train Loss: 0.4220658 Vali Loss: 0.9809038 Test Loss: 0.4344726
+Epoch: 7, Steps: 65 | Train Loss: 0.4185059 Vali Loss: 0.9804826 Test Loss: 0.4285454
+Epoch: 8, Steps: 65 | Train Loss: 0.4156377 Vali Loss: 0.9794542 Test Loss: 0.4263500
+Epoch: 9, Steps: 65 | Train Loss: 0.4122881 Vali Loss: 0.9853792 Test Loss: 0.4248321
+Epoch: 10, Steps: 65 | Train Loss: 0.4098831 Vali Loss: 0.9822881 Test Loss: 0.4243179
+Epoch: 11, Steps: 65 | Train Loss: 0.4078322 Vali Loss: 0.9794546 Test Loss: 0.4223515
+Epoch: 12, Steps: 65 | Train Loss: 0.4058250 Vali Loss: 0.9798769 Test Loss: 0.4208106
+Epoch: 13, Steps: 65 | Train Loss: 0.4045333 Vali Loss: 0.9804198 Test Loss: 0.4194246
+Early stopping
+mse:0.4263499677181244, mae:0.4244808256626129, nse:0.615523636341095, kge:0.7169763002606255, mape:9.736337661743164
+完成 ETTh1_H192_lg_dual_s2026: MSE=0.426350 MAE=0.424481
+结果目录: /root/autodl-tmp/XLinear_ResearchLab_Clean/runs/20261116_222640_full_fee567/results

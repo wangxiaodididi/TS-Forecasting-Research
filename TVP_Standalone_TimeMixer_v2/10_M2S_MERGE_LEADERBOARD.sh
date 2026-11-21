@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")"
+PYTHON="${PYTHON:-python}"
+"$PYTHON" -m m2s_baselines.merge --mode full

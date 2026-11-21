@@ -1,0 +1,3 @@
+# Freeze official author training configuration. Structural change only.
+model: GTRPhaseInnovation
+overrides: {}

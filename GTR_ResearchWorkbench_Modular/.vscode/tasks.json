@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label":"GTR: 安装官方源码与依赖","type":"shell","command":"bash 00_安装依赖.sh","problemMatcher":[],"group":"build"},
+    {"label":"GTR: CPU 小样本","type":"shell","command":"bash 01_CPU小样本测试.sh ETTm1 GTR 96","problemMatcher":[],"group":"test"},
+    {"label":"GTR: 原始论文配置","type":"shell","command":"bash 02_完整论文配置.sh ETTm1 GTR 96 2024","problemMatcher":[]},
+    {"label":"GTR: 小波高频改造","type":"shell","command":"bash 02_完整论文配置.sh ETTm1 GTRHaarHigh 96 2024","problemMatcher":[]},
+    {"label":"GTR: 打开可视化网页","type":"shell","command":"bash 03_打开可视化面板.sh","problemMatcher":[],"isBackground":true},
+    {"label":"GTR: 自检","type":"shell","command":"./.venv/bin/python -m unittest discover -s tests -v && ./.venv/bin/python -m tests.check_model_cpu","problemMatcher":[],"group":"test"}
+  ]
+}

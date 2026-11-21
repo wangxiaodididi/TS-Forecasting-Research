@@ -1,0 +1,1 @@
+TVP online comparison patch: ASCII-only names. Copy 04_tvp_diagnostics.py and 05_fair_online_comparison.py into the root of your existing, already-trained TVP_Standalone_TimeMixer_v2 project. Run python 04_tvp_diagnostics.py and python 05_fair_online_comparison.py. No retraining and no existing results are overwritten.

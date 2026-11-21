@@ -1,0 +1,12 @@
+ETTh1_96_96_paper_Paloma_ETTh1_ftM_sl96_pl96_cycle24_0.5_dmodel256_bs32_lr0.0005_0.5_L1_seed2024  
+mse:0.36057013273239136, mae:0.3786992132663727
+
+ETTh1_96_336_paper_Paloma_ETTh1_ftM_sl96_pl336_cycle24_0.5_dmodel256_bs32_lr0.0007_0.5_L1_seed2024  
+mse:0.45496082305908203, mae:0.4296127259731293
+
+ETTm1_96_96_paper_Paloma_ETTm1_ftM_sl96_pl96_cycle96_0.4_dmodel256_bs64_lr0.0005_0.7_L1_seed2024  
+mse:0.29596278071403503, mae:0.33232545852661133
+
+ETTm1_96_336_paper_Paloma_ETTm1_ftM_sl96_pl336_cycle96_0.5_dmodel256_bs128_lr0.001_0.5_L1_seed2024  
+mse:0.3774263262748718, mae:0.38172969222068787
+

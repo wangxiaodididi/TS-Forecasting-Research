@@ -1,0 +1,100 @@
+# XLinear Research Lab — 唯一实验参数配置。修改后，只影响新启动的实验。
+# 模型注册位置 src/models/registry.py；新增模型代码放在 src/models/extensions/。
+# 使用原作者固定版本 train/data/optimizer/metrics，不再使用旧版手写 benchmark.py。
+
+source:
+  repository: https://github.com/Zaiwen/XLinear
+  commit: 8398e656e945da84a79e8b2f64af8f3f68842e19
+  model_git_blob: 9913ba6837a7c8658283636ab7f5727e07f2f709
+  archive: data_archives/public_datasets_4.zip
+
+runtime:
+  device: cuda                   # 正式训练只允许 cuda；缺少 GPU 立即报错
+  precision: fp32               # 与作者默认 --use_amp=False 对齐
+  workers: 10                   # 原作者 run_longExp.py 默认 num_workers=10
+  context_ratio: 0.25           # 仅 dyn_token/stat_token 的近期历史比例
+
+# 训练监控：不改变模型、损失函数、优化器或验证选模。
+monitoring:
+  batch_interval: 10            # 每10个Batch记录一条实时Train Batch Loss；0禁用额外日志
+  gpu_interval_seconds: 5       # 每5秒采样一次显存、算力利用率和功耗
+  dashboard_refresh_seconds: 3  # 网页约3秒刷新一次（仅显示）
+
+experiment:
+  datasets: [ETTh1]
+  horizons: [96]
+  variants: [official, dyn_token, stat_token]
+  seeds: [2025]
+
+pilot:
+  datasets: [ETTh1]
+  horizons: [96]
+  variants: [official, dyn_token, stat_token]
+  seeds: [2025]
+  epochs: 2                     # 小范围工程验证，不能与论文结果比较
+
+# 以下是作者固定版本 script/multi_forcatsing 下各数据集对应预测长度的配置。
+# 官方复现不要自行替换！ 如扩展 ETTm1/Electricity，请先核对作者相应脚本并加入。
+profiles:
+  ETTh1:
+    '96':
+      data: ETTh1
+      file: ETTh1.csv
+      channels: 7
+      d_model: 128
+      t_ff: 512
+      c_ff: 7
+      t_dropout: 0.0
+      c_dropout: 0.0
+      head_dropout: 0.2
+      embed_dropout: 0.0
+      patience: 10
+      epochs: 30
+      batch_size: 128
+      learning_rate: 0.0005
+    '192':
+      data: ETTh1
+      file: ETTh1.csv
+      channels: 7
+      d_model: 128
+      t_ff: 1024
+      c_ff: 7
+      t_dropout: 0.0
+      c_dropout: 0.0
+      head_dropout: 0.3
+      embed_dropout: 0.0
+      patience: 5
+      epochs: 30
+      batch_size: 128
+      learning_rate: 0.0005
+  Weather:
+    '96':
+      data: custom
+      file: weather.csv
+      channels: 21
+      d_model: 256
+      t_ff: 256
+      c_ff: 42
+      t_dropout: 0.0
+      c_dropout: 0.0
+      head_dropout: 0.2
+      embed_dropout: 0.0
+      patience: 10
+      epochs: 20
+      batch_size: 32
+      learning_rate: 0.0005
+    '192':
+      data: custom
+      file: weather.csv
+      channels: 21
+      d_model: 256
+      t_ff: 128
+      c_ff: 42
+      t_dropout: 0.2
+      c_dropout: 0.0
+      head_dropout: 0.3
+      embed_dropout: 0.0
+      patience: 3
+      epochs: 10
+      batch_size: 32
+      learning_rate: 0.0005

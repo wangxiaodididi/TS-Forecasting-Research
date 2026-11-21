@@ -1,0 +1,19 @@
+# Authors original: scripts/GTR/electricity.sh
+dataset: Electricity
+data: custom
+data_path: electricity.csv
+root_path: ./dataset/
+enc_in: 321
+cycle: 168
+features: M
+seq_len: 96
+pred_lens: [96, 192, 336, 720]
+official_seeds: [2024]
+train_epochs: 30
+patience: 5
+batch_size: 32
+learning_rate: 0.003
+itr: 1
+random_seed: 2024
+# All other args are left at upstream run.py defaults.
+locked: true

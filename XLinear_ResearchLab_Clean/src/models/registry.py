@@ -1,0 +1,222 @@
+"""唯一的模型变体注册表。增加模块不需要改动官方模型源码或者训练器。
+
+扩展约定：factory(backbone, configs, ratio) 返回一个保持输出维度不变的新 backbone。
+"""
+import torch
+from src.models.extensions.global_token import HistoricalGlobalToken
+from src.models.extensions.component_interaction import ComponentConditionedVGM
+from src.models.extensions.seasonal_residual import SeasonalResidualAdapter
+
+
+def _dynamic_token(backbone, configs, ratio):
+    return HistoricalGlobalToken(backbone,int(configs.seq_len),'dyn_token',ratio)
+
+
+def _statistic_token(backbone, configs, ratio):
+    return HistoricalGlobalToken(backbone,int(configs.seq_len),'stat_token',ratio)
+
+# 新模型只需要：1) src/models/extensions 新建模块；2) 这里导入并注册；3) YAML 增加名称。
+VARIANTS = {
+    'cc_components': None,
+    'cc_raw': None,
+    'cc_static': None,
+    'official': None,
+    'dyn_token': _dynamic_token,
+    'stat_token': _statistic_token,
+    'csra': None,
+}
+
+
+def available_variants():
+    return tuple(VARIANTS)
+
+
+def build_variant_model(original_model_class, variant: str, ratio: float):
+    if variant not in VARIANTS:
+        raise ValueError(f'未注册模型: {variant}')
+    if variant == 'official':
+        return original_model_class
+    if variant == 'csra':
+        class LocalCSRA(original_model_class):
+            def __init__(self, configs):
+                super().__init__(configs)
+                if configs.features != 'M':
+                    raise ValueError('csra 当前仅支持多变量 M 预测')
+                # ETTh1 是小时数据，24个时间点恰好对应1天；暂不错误套用到 Weather。
+                if configs.data != 'ETTh1' or int(configs.seq_len) != 96:
+                    raise ValueError('csra_v1 仅验证 ETTh1, seq_len=96, period=24；其他数据请先确定真实周期')
+                self.csra = SeasonalResidualAdapter(
+                    channels=int(configs.enc_in), seq_len=int(configs.seq_len),
+                    pred_len=int(configs.pred_len), period=24, max_cycles=4)
+
+            def forward(self, x_enc):
+                original_prediction = super().forward(x_enc)
+                return self.csra(x_enc, original_prediction)
+
+        LocalCSRA.__name__ = 'XLinear_csra'
+        return LocalCSRA
+    if variant in ('cc_components','cc_raw','cc_static'):
+        class ComponentVariant(original_model_class):
+            def __init__(self, configs):
+                super().__init__(configs)
+                if configs.features != 'M':
+                    raise ValueError('CC-XLinear 当前仅支持多变量 M 预测')
+                if int(configs.seq_len) < 48:
+                    raise ValueError('CC-XLinear 至少需要48个历史采样步')
+                cpu_state = torch.random.get_rng_state()
+                try:
+                    self.backbone = ComponentConditionedVGM(
+                        self.backbone, int(configs.seq_len), int(configs.enc_in),
+                        mode=variant, period=24)
+                finally:
+                    torch.random.set_rng_state(cpu_state)
+        ComponentVariant.__name__ = 'XLinear_' + variant
+        return ComponentVariant
+    factory=VARIANTS[variant]
+
+    class LocalVariant(original_model_class):
+        def __init__(self, configs):
+            super().__init__(configs)
+            if configs.features != 'M':
+                raise ValueError('当前局部模型仅支持多变量 M 分支；不可混用外生 MS 分支。')
+            # 构造时模型仍在 CPU；只保存/恢复 CPU RNG 即可隔离新参数初始化，
+            # 不主动触碰 GPU（CPU 自检也不会因此初始化 CUDA context）。
+            cpu=torch.random.get_rng_state()
+            try:
+                self.backbone=factory(self.backbone, configs, ratio)
+            finally:
+                torch.random.set_rng_state(cpu)
+
+    LocalVariant.__name__=f'XLinear_{variant}'
+    return LocalVariant
+
+# >>> HCF-XLINEAR V1 BEGIN
+from src.models.extensions.horizon_fusion import HorizonFusionHead
+
+_HCF_previous_build_variant_model = build_variant_model
+for _hcf_name in ('hcf', 'hcf_static', 'hcf_shared'):
+    if _hcf_name in VARIANTS:
+        raise RuntimeError('Name collision in VARIANTS: ' + _hcf_name)
+    VARIANTS[_hcf_name] = None  # registry metadata; factory is handled below
+
+def build_variant_model(original_model_class, variant: str, ratio: float):
+    if variant not in ('hcf', 'hcf_static', 'hcf_shared'):
+        return _HCF_previous_build_variant_model(original_model_class, variant, ratio)
+    class XLinearHorizonFusion(original_model_class):
+        def __init__(self, configs):
+            super().__init__(configs)
+            if configs.features != 'M':
+                raise ValueError('HCF only supports XLinear multivariate M branch')
+            _cpu_rng = torch.random.get_rng_state()
+            try:
+                self.head = HorizonFusionHead(
+                    self.head, d_model=int(configs.d_model),
+                    pred_len=int(configs.pred_len), mode=variant,
+                    groups=4, hidden=16, max_gain=0.5)
+            finally:
+                torch.random.set_rng_state(_cpu_rng)
+    XLinearHorizonFusion.__name__ = 'XLinear_' + variant
+    return XLinearHorizonFusion
+# <<< HCF-XLINEAR V1 END
+
+# >>> LG-EMBED V1 BEGIN
+from src.models.extensions.local_global_embedding import LocalGlobalEmbedding
+_LG_previous_build_variant_model = build_variant_model
+for _lg_variant in ('lg_dual', 'lg_short', 'lg_linear'):
+    if _lg_variant in VARIANTS:
+        raise RuntimeError('Variant name collision: ' + _lg_variant)
+    VARIANTS[_lg_variant] = None
+
+def build_variant_model(original_model_class, variant: str, ratio: float):
+    if variant not in ('lg_dual', 'lg_short', 'lg_linear'):
+        return _LG_previous_build_variant_model(original_model_class, variant, ratio)
+    class XLinearLocalGlobal(original_model_class):
+        def __init__(self, configs):
+            super().__init__(configs)
+            if configs.features != 'M':
+                raise ValueError('LG embedding is supported only for multivariate features=M')
+            _lg_rng_state = torch.random.get_rng_state()
+            try:
+                self.backbone.projection = LocalGlobalEmbedding(
+                    self.backbone.projection, int(configs.seq_len),
+                    int(configs.d_model), mode=variant)
+            finally:
+                torch.random.set_rng_state(_lg_rng_state)
+    XLinearLocalGlobal.__name__ = 'XLinear_' + variant
+    return XLinearLocalGlobal
+# <<< LG-EMBED V1 END
+
+# >>> LG-POSITION V1 BEGIN
+from src.models.extensions.position_local_embedding import PositionLocalGlobalEmbedding
+_LGP_previous_build_variant_model = build_variant_model
+if 'lg_position' in VARIANTS:
+    raise RuntimeError('Variant lg_position already registered before LG-Position v1 block')
+VARIANTS['lg_position'] = None
+
+def build_variant_model(original_model_class, variant: str, ratio: float):
+    if variant != 'lg_position':
+        return _LGP_previous_build_variant_model(original_model_class, variant, ratio)
+    class XLinearLGPosition(original_model_class):
+        def __init__(self, configs):
+            super().__init__(configs)
+            if configs.features != 'M':
+                raise ValueError('lg_position supports only features=M')
+            _lgp_rng_state = torch.random.get_rng_state()
+            try:
+                self.backbone.projection = PositionLocalGlobalEmbedding(
+                    self.backbone.projection, int(configs.seq_len), int(configs.d_model))
+            finally:
+                torch.random.set_rng_state(_lgp_rng_state)
+    XLinearLGPosition.__name__ = 'XLinear_lg_position'
+    return XLinearLGPosition
+# <<< LG-POSITION V1 END
+
+# >>> XLINEAR-COMPLEMENTARY-V1 BEGIN
+from src.models.extensions.complementary_blocks_v1 import TemporalFeatureAdapter, RecentTrendResidual
+_comp_previous_builder = build_variant_model
+_COMP_CONFIGS = {
+    'lg_tmix_r16': (16, None),
+    'lg_tmix_r8': (8, None),
+    'lg_trend_w24': (None, 24),
+    'lg_trend_w12': (None, 12),
+    'lg_combo_r16_w24': (16, 24),
+}
+for _comp_name in _COMP_CONFIGS:
+    if _comp_name in VARIANTS:
+        raise RuntimeError('Model variant conflict: ' + _comp_name)
+    VARIANTS[_comp_name] = None
+
+def build_variant_model(original_model_class, variant: str, ratio: float):
+    if variant not in _COMP_CONFIGS:
+        return _comp_previous_builder(original_model_class, variant, ratio)
+    # Retain the original proven LG-Short module exactly; do not reimplement it.
+    base_lg = _comp_previous_builder(original_model_class, 'lg_short', ratio)
+    rank, recent_window = _COMP_CONFIGS[variant]
+
+    class XLinearComplementary(base_lg):
+        def __init__(self, configs):
+            super().__init__(configs)
+            if configs.features != 'M':
+                raise ValueError('Only XLinear multivariate features=M is supported')
+            _state = torch.random.get_rng_state()
+            try:
+                if rank is not None:
+                    self.backbone.en_attention = TemporalFeatureAdapter(
+                        self.backbone.en_attention, int(configs.d_model), rank=rank)
+                if recent_window is not None:
+                    if int(configs.seq_len) < 2 * recent_window:
+                        raise ValueError('Not enough history for trend skip')
+                    self.recent_trend_residual = RecentTrendResidual(
+                        int(configs.pred_len), recent_window=recent_window)
+            finally:
+                torch.random.set_rng_state(_state)
+
+        def forward(self, x_enc):
+            y = super().forward(x_enc)
+            if recent_window is not None:
+                y = y + self.recent_trend_residual(x_enc, normalized=bool(self.norm))
+            return y
+
+    XLinearComplementary.__name__ = 'XLinear_' + variant
+    return XLinearComplementary
+# <<< XLINEAR-COMPLEMENTARY-V1 END

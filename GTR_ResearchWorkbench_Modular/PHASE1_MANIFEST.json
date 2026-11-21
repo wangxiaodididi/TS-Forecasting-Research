@@ -1,0 +1,22 @@
+{
+  "package": "GTR_Phase1_SafePatch",
+  "unzip": "unzip -n",
+  "files": {
+    "07_Phase1_CPU.sh": "37379fc8f5450e6f5557f7935ff182c1f500638fd424cd5e117e532cdeaf9581",
+    "08_Phase1_GPU.sh": "ca466a6e2d928cef7fc0dfab9e0416a2dbe0c8ae538416694af89900e0541b7d",
+    "09_Phase1_Status.sh": "23766d202db8d1237c6c2f68c7237cf7a3d44ee5b6f3ebb6f07ad38d69ba35ba",
+    "10_Phase1_Final_Results.sh": "f3d409149008e7537f6afc8d13875901f9a675d0b9ec2fb7487acb8985166c46",
+    "PHASE1_README.md": "8ff5ca755dae4051ac5a1a826d04fc283214d84622d9703456a02a4eb3f692fc",
+    "extensions/models/GTRHaarDual.py": "09a4cc0332ded571ad0922ff854f7c700c5cec884a65c92d762835bdfbd6f63b",
+    "extensions/models/GTRHaarHigh.py": "560fe2f91485b9eb391821ab173222945db4f31c721fc4a2a0abf75d7708700a",
+    "extensions/models/GTRHaarLow.py": "6908d706388c21c03a11220e3e23b74c917b7ca55cedb4f33f77f97d33674709",
+    "extensions/models/GTRLinearResidual.py": "edca6b6368f495585e6d412c09c6722681b74c56307c8a7467b50a7a833c779b",
+    "extensions/models/GTRSignalCore.py": "7d21d68902f03d6a5238572b32530c48a91579499637427bc712cba44b91326e",
+    "extensions/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lab/pages/01_Phase1_Ablation.py": "22ddd35480abd459a1f9db614f34204b192db0f6666cd355f51f4efd33de1507",
+    "phase1/__init__.py": "743b9aaacbba14b6352e7a3f1164635d3843f8b5d0c1ab520b32a0dca1d7e93a",
+    "phase1/core.py": "0bb5e19607e5e3ac81a01c0c7a5ad407727deafff433dcd253bc691d00e19357",
+    "phase1/launch.py": "57a2cad2e8d97e3057571000ebfa72bca962868b321b0af5b8a0d63b1302c8b4",
+    "tests/test_phase1.py": "8443a45714b3dac81642be38e4fab34ce4364361bd507bedab2901f382eb3d1b"
+  }
+}

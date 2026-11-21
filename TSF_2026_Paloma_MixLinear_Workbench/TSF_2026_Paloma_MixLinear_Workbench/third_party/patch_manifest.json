@@ -1,0 +1,16 @@
+{
+  "TStruct": {
+    "commit": "5b9eb393a092c14d28d08395b63de809accd115a",
+    "already_patched": true,
+    "run_sha256": "c594ad5d687ff332a02a56dd9fa8ae140d05fffe46d18cd43ec7a5d3f84d718a",
+    "exp_sha256": "446b90d567bdad2c0a796ad23e56bf8ef0ec2cc5e06e89756674e26bbe688425",
+    "compat_sha256": ""
+  },
+  "TimeBase": {
+    "commit": "369b330f3d77371fcc7e8c75c808d01330c40899",
+    "already_patched": true,
+    "run_sha256": "f36cc46dd4e5875c4ab3768339d83374fa62848f68b86cfe0531e34749be06d7",
+    "exp_sha256": "f78b205fa57a587d24c01bc16c3c80974df2174cbf1cd242f73fd977100deea5",
+    "compat_sha256": "04fc47e001ec2b22147e9336025fa8576d1d84cd460c0755f54b0cc0bfe96ca9"
+  }
+}

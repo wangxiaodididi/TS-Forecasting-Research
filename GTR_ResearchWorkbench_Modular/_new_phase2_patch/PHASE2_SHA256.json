@@ -1,0 +1,21 @@
+{
+  "11_Phase2_CPU.sh": "976a7ca036fa6ffd793f62544cb5ea47eb92693e0cddcd15113ea4ab1b63d2d8",
+  "12_Phase2_GPU.sh": "c9f3f69eea098494bca940f19810f8fccc1b8b800ae5d02c2a22ed9e43c3cdca",
+  "13_Phase2_Status.sh": "44721d792f1235943930bfdd99c00b7ae50c958d7eb022990482c4b3a2035416",
+  "14_Phase2_Validation.sh": "3aeba7ff84f1dd2b9f67f57e22aac1d1c0a1e8d5fd5aeaed61f5e27de43568cc",
+  "README_PHASE2.md": "b1ecb8b1c694ca0a0af119cc83249759b426ba65ff7a60b3c1463bb7ee8c5640",
+  "configs/experiments/phase_adaptive.yaml": "be01bb9afc4cac5d1e85a567cda6f43475f9cebc3c5af24070fe2a750f8cfbdf",
+  "configs/experiments/phase_innovation.yaml": "3fe65107ab006aff29dee70476df0f36ab5bcb53e787d5347049af3796ff2d78",
+  "docs/PHASE2_RESEARCH_DESIGN.md": "d7195f24b0b960dbfc513c90d221b61103dd918c3cb3546e289805545fb9b1cd",
+  "extensions/models/GTRPhaseAdaptive.py": "7d8a0bee7c487f6aaf290760a18baa5c274f03183fc2eadb5bbdb8b685977703",
+  "extensions/models/GTRPhaseCore.py": "31700e78e36b6f41a6b4092c8b3a67b19e72324ec9f7c85e65f874fe3d3636e7",
+  "extensions/models/GTRPhaseInnovation.py": "2b936899b495e2ae617fd8cd2ed815382554baafc2fb1d24449c8448ab38aaf6",
+  "lab/pages/02_Phase2_Innovation.py": "7c84d798a9e5b98478eeb56489dbbe660918c9f9f217db957f780a19d17174e5",
+  "phase2/__init__.py": "cb8eedb5a8cf15a87d0c3e555a8aae515b600c11174ab3c9a84560c0c30d650f",
+  "phase2/batch.py": "ad42cf866ffac61f59662753ec98bee5fe1f42da0a1092d4d7d66c23da2e6a60",
+  "phase2/cli.py": "0221670c62a683be30b091269b877af70f0742dd907600081b37891ed0a09b79",
+  "phase2/explain.py": "044c4409a1ec3aafa1c7cbd3262bde901c6a7a363bb4ad08675427e470d0fd1a",
+  "phase2/install.py": "3422879530b5b4ecc2d1a7e2390a20dba890b3f3e2e8437dfeb6c7ac515899de",
+  "tests/test_phase2_install.py": "58dd01ab829b4494b5c221fa6618ef15ff70edfdc0a2ec6e38b7e78d69f52784",
+  "tests/test_phase2_model.py": "70299474794172aeb8e5dce9ad4b6a2928cf5950bbb7c387ad4c85cb5fde7a2b"
+}

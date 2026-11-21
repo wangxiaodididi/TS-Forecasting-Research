@@ -1,0 +1,6 @@
+streamlit>=1.39,<2.0
+pandas>=2.0
+PyYAML>=6.0
+plotly>=5.20
+numpy>=1.24,<2.0  # Upstream utils/tools.py uses np.Inf (removed in NumPy 2.x)
+# torch and official GTR dependencies are installed separately with vendor/GTR/requirements.txt

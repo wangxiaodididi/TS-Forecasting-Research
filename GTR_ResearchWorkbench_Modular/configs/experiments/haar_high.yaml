@@ -1,0 +1,5 @@
+# Applied only to extension models, not official GTR baseline.
+model: GTRHaarHigh
+# Begin with the SAME official training hyperparameters.
+# Explicit research-only overrides, if needed, go under overrides:
+overrides: {}

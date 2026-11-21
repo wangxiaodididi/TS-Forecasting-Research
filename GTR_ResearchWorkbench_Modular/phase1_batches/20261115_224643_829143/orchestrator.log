@@ -1,0 +1,13 @@
+
+=== START GTRLinearResidual: 20261115_224643_86fe229 ===
+=== FINISH GTRLinearResidual: completed, best validation recorded in loss.csv ===
+
+=== START GTRHaarHigh: 20261115_224715_99cd054 ===
+=== FINISH GTRHaarHigh: completed, best validation recorded in loss.csv ===
+
+=== START GTRHaarLow: 20261115_224749_120fb8b ===
+=== FINISH GTRHaarLow: completed, best validation recorded in loss.csv ===
+
+=== START GTRHaarDual: 20261115_224822_4980162 ===
+=== FINISH GTRHaarDual: completed, best validation recorded in loss.csv ===
+=== ALL FOUR EXTENSIONS COMPLETED ===

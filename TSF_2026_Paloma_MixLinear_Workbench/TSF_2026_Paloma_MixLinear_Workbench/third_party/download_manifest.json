@@ -1,0 +1,16 @@
+{
+  "TStruct": {
+    "repo": "yangzeli/TStruct",
+    "commit": "5b9eb393a092c14d28d08395b63de809accd115a",
+    "license": "MIT",
+    "license_sha256": "b930d1ab44e1f3f99458885a5802d5f56b63dc2d18e87e8d0d6cf050015a7f6a",
+    "model_sha256_before_patch": "4ba0e1b2cee9ba962674305fca297f97d934ef0fbafa3b06dae0b7fd1b57b7f7"
+  },
+  "TimeBase": {
+    "repo": "hqh0728/TimeBase",
+    "commit": "369b330f3d77371fcc7e8c75c808d01330c40899",
+    "license": "MIT",
+    "license_sha256": "a2fc1dee03903f0eb81161e2ae9fc53c312181d38e4c3447d068fd32e60a3d75",
+    "model_sha256_before_patch": "f273f20df34be28e50854f1e55791750d26bdf56996135db6822832b0fd3e9e6"
+  }
+}

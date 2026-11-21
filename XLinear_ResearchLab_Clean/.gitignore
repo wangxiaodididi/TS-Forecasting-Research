@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+runs/*
+!runs/.gitkeep
+ops/*
+!ops/.gitkeep
+vendor/XLinear/
+.DS_Store
+.vscode/*.log
+
+# 系统生成缓存
+__pycache__/
+*.pyc

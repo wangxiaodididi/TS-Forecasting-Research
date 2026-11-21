@@ -1,0 +1,3 @@
+{"group": "ett_192", "run_id": "20261116_222640_full_fee567", "exit_code": 0, "recorded_at": "2026-11-16T14:29:28.100792+00:00", "log": "LG_Replication_v2/state/ett_192_20261116_222639.log"}
+{"group": "weather_96", "run_id": "20261116_222929_full_002cc8", "exit_code": 0, "recorded_at": "2026-11-16T14:52:24.059550+00:00", "log": "LG_Replication_v2/state/weather_96_20261116_222928.log"}
+{"group": "ett_96_seeds", "run_id": "20261116_225225_full_bd390a", "exit_code": 0, "recorded_at": "2026-11-16T14:57:51.907608+00:00", "log": "LG_Replication_v2/state/ett_96_seeds_20261116_225224.log"}

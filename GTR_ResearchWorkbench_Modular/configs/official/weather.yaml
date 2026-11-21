@@ -1,0 +1,20 @@
+# Authors original: scripts/GTR/weather.sh
+dataset: Weather
+data: custom
+data_path: weather.csv
+root_path: ./dataset/
+enc_in: 21
+cycle: 144
+features: M
+seq_len: 96
+pred_lens: [96, 192, 336, 720]
+official_seeds: [2024]
+train_epochs: 30
+patience: 5
+batch_size: 64
+learning_rate: 0.001
+itr: 1
+random_seed: 2024
+dropout: 0.5
+# All other args are left at upstream run.py defaults.
+locked: true

@@ -1,0 +1,15 @@
+{
+  "TVP_Standalone_TimeMixer_v2/07_M2S_BASELINES_CPU_SMOKE.sh": "1726b3dbeac89bc479a09adc987e21899567bfbf0f1e660a2e17c646019f895c",
+  "TVP_Standalone_TimeMixer_v2/08_M2S_BASELINES_GPU_TWO.sh": "1fd2dca2e8507aca84930ad9990ad4eb1db958d2b7b4035f2dc037396c0c1aa9",
+  "TVP_Standalone_TimeMixer_v2/09_M2S_BASELINES_GPU_ALL.sh": "e674a4f179e1e3e5beae8b34e2a5399e2452846137d6794370afc6e5c3d69bb0",
+  "TVP_Standalone_TimeMixer_v2/10_M2S_MERGE_LEADERBOARD.sh": "fee47500dc5a2eeef4ed7174a72c29badfc50f4f40e90f62804c8d8fa9ff17b6",
+  "TVP_Standalone_TimeMixer_v2/README_M2S_BASELINES_CN.md": "6670a069d1805ba9754104016791e249399e27f7cbdfb088c43bac52f72517f3",
+  "TVP_Standalone_TimeMixer_v2/m2s_baselines/INITIAL_NAIVE_RESULTS_CN.md": "679d4221988c3861f8229d6ef1a004b4dd979173db0fdb205da29a0c0ed3ff13",
+  "TVP_Standalone_TimeMixer_v2/m2s_baselines/__init__.py": "73049cbe7d5cd97d06928533f52c7dfe309dace47deb0e8b8174f6d416117cae",
+  "TVP_Standalone_TimeMixer_v2/m2s_baselines/merge.py": "9c0e14e0247279a329ec0b677fcb9ad2f3214b2d837fdb953bf8b263bb0d4550",
+  "TVP_Standalone_TimeMixer_v2/m2s_baselines/models.py": "a02d04a9269ce1e8af7c6eadb0c36f715fb63f430e77655a92bd90b8b80f3cf2",
+  "TVP_Standalone_TimeMixer_v2/m2s_baselines/naive_full_metrics_offline.csv": "e50f4df8d30ecce55727a24deb8592791adc1ff2cc93e97f5c205bd0fbc6cf87",
+  "TVP_Standalone_TimeMixer_v2/m2s_baselines/run_grid.py": "d0a1c9f0befcfece046729c96ef93f87dc57e8de04eda270b0115827da798fdd",
+  "TVP_Standalone_TimeMixer_v2/m2s_baselines/tests/test_overlay.py": "9baed71c6182524c599a43e0084b3bb6d5a44f6a0cfff85b107cdef8eca3997e",
+  "TVP_Standalone_TimeMixer_v2/m2s_baselines/train.py": "fb593d3a444e72d0d43dbb890330c14cb1f9009f3596d1dd5cb4ae644c73c73a"
+}

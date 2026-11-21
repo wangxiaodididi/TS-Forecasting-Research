@@ -1,0 +1,1 @@
+Unzip this package into ~/autodl-tmp/Sonnet_M2S_2026_ResearchLab so that prepare_variants.py and run_variant.sh are in the project root.

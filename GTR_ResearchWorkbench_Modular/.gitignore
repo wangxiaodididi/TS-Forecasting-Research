@@ -1,0 +1,6 @@
+/vendor/GTR/
+/runs/
+__pycache__/
+*.pyc
+*.pt
+*.pth

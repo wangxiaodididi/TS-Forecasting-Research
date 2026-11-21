@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label":"XLinear | Setup 官方源码", "type":"shell", "command":"bash run.sh setup", "problemMatcher":[]},
+    {"label":"XLinear | CPU 模型自检", "type":"shell", "command":"bash run.sh check && python -m tests.test_monitor", "problemMatcher":[]},
+    {"label":"XLinear | 查看训练计划", "type":"shell", "command":"bash run.sh plan", "problemMatcher":[]},
+    {"label":"XLinear | GPU 小样本", "type":"shell", "command":"bash run.sh pilot", "problemMatcher":[]},
+    {"label":"XLinear | GPU 完整训练（前台进度条）", "type":"shell", "command":"bash run.sh full", "problemMatcher":[]},
+    {"label":"XLinear | GPU 完整训练（后台）", "type":"shell", "command":"bash run.sh full-bg", "problemMatcher":[]},
+    {"label":"XLinear | 查看任务状态", "type":"shell", "command":"bash run.sh status", "problemMatcher":[]},
+    {"label":"XLinear | 打开可视化面板", "type":"shell", "command":"bash run.sh dashboard", "problemMatcher":[]}
+  ]
+}
